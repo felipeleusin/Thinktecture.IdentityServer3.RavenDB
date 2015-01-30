@@ -1,22 +1,11 @@
 ﻿namespace Thinktecture.IdentityServer3.RavenDB.Tests.Helpers
 {
-    using System;
     using System.Collections.Generic;
     using IdentityServer.Core;
     using IdentityServer.Core.Models;
-    using Raven.Client;
 
-    public class Clients
+    public class TestClients
     {
-        public static void LoadTo(IDocumentStore store)
-        {
-            using (var session = store.OpenSession())
-            {
-                Get().ForEach(session.Store);
-                session.SaveChanges();
-            }   
-        }
-
         public static List<Client> Get()
         {
             return new List<Client>

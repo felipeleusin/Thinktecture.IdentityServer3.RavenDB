@@ -23,7 +23,7 @@ namespace Thinktecture.IdentityServer3.RavenDB.Stores
 
             if (scopeNames != null)
             {
-                query.Where(x => x.Name.In(scopeNames));
+                query = query.Where(x => x.Name.In(scopeNames));
             }
 
             return await query.ToListAsync();
@@ -35,7 +35,7 @@ namespace Thinktecture.IdentityServer3.RavenDB.Stores
 
             if (publicOnly)
             {
-                query.Where(x => x.ShowInDiscoveryDocument);
+                query = query.Where(x => x.ShowInDiscoveryDocument);
             }
 
             return await query.ToListAsync();

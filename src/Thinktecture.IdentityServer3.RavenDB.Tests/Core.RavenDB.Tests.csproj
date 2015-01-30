@@ -68,9 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
-    <Compile Include="Helpers\Clients.cs" />
+    <Compile Include="Helpers\TestClients.cs" />
+    <Compile Include="Helpers\RavenLoader.cs" />
+    <Compile Include="Helpers\TestScopes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stores\Client\ClientStoreMethods.cs" />
+    <Compile Include="Stores\Client\ClientStoreTests.cs" />
+    <Compile Include="Stores\Scopes\ScopeStoreTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Thinktecture.IdentityServer3.RavenDB\Core.RavenDB.csproj">

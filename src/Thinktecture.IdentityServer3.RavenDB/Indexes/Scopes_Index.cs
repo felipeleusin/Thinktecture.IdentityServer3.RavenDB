@@ -1,9 +1,8 @@
 ﻿namespace Thinktecture.IdentityServer3.RavenDB.Indexes
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using IdentityServer.Core.Models;
+    using Raven.Abstractions.Indexing;
     using Raven.Client.Indexes;
 
     public class Scopes_Index : AbstractIndexCreationTask<Scope>
@@ -17,6 +16,8 @@
                     scope.Name,
                     scope.ShowInDiscoveryDocument
                 };
+
+            Index(x => x.Name, FieldIndexing.NotAnalyzed);
         }
     }
 }

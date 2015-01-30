@@ -7,24 +7,21 @@
     using Shouldly;
     using Xunit;
 
-    public class ClientStoreMethods : BaseTest
+    public class ClientStoreTests : BaseTest
     {
-        public ClientStoreMethods()
+        public ClientStoreTests()
         {
             Factory.ConfigureClient(RavenOptions);
-            Clients.LoadTo(Store);
+            TestClients.Get().LoadTo(Store);
         }
 
         [Fact]
         public async Task CanLoadClientById()
         {
-            using (var session = Store.OpenAsyncSession())
-            {
-                var store = new ClientStore(session);
-                var client = await store.FindClientByIdAsync("codeclient");
+            var store = new ClientStore(Session);
+            var client = await store.FindClientByIdAsync("codeclient");
 
-                client.ShouldNotBe(null);
-            }
+            client.ShouldNotBe(null);
         }
     }
 }
